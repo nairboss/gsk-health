@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapton Health Guidance Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Kapton Health Guidance Tool</h1>
+        <p>Please answer the following questions to get personalized recommendations.</p>
+
+        <form id="healthForm">
+            <!-- Question 1: Symptoms -->
+            <label for="symptoms">What symptoms are you experiencing?</label>
+            <select id="symptoms" multiple>
+                <option value="fever">Fever</option>
+                <option value="headache">Headache</option>
+                <option value="body_aches">Body aches</option>
+                <option value="cold">Cold/flu-like symptoms</option>
+                <option value="sore_throat">Sore throat</option>
+                <option value="none">None</option>
+            </select>
+
+            <!-- Question 2: Body Temperature -->
+            <label for="temperature">What is your current body temperature?</label>
+            <select id="temperature">
+                <option value="less_100">Less than 100°F</option>
+                <option value="100_102">100°F to 102°F</option>
+                <option value="above_102">Above 102°F</option>
+                <option value="not_sure">Not sure</option>
+            </select>
+
+            <!-- Question 3: Paracetamol in Last 24 hours -->
+            <label>Have you taken any paracetamol in the past 24 hours?</label>
+            <input type="radio" name="paracetamol" value="yes"> Yes
+            <input type="radio" name="paracetamol" value="no"> No
+
+            <!-- Question 4: Weight -->
+            <label for="weight">What is your weight?</label>
+            <select id="weight">
+                <option value="less_40">Less than 40 kg</option>
+                <option value="40_59">40-59 kg</option>
+                <option value="60_79">60-79 kg</option>
+                <option value="80_99">80-99 kg</option>
+                <option value="more_100">100 kg or more</option>
+            </select>
+
+            <!-- Question 5: Eaten in last 2 hours -->
+            <label>Have you eaten in the last 2 hours?</label>
+            <input type="radio" name="eaten" value="meal"> Yes, I’ve had a meal
+            <input type="radio" name="eaten" value="snack"> Yes, I’ve had a light snack
+            <input type="radio" name="eaten" value="no"> No
+
+            <!-- Question 6: Water Consumption -->
+            <label for="water">How much water have you consumed today?</label>
+            <select id="water">
+                <option value="less_3">Less than 3 glasses</option>
+                <option value="3_5">3-5 glasses</option>
+                <option value="6_8">6-8 glasses</option>
+                <option value="more_8">More than 8 glasses</option>
+            </select>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="processForm()">Get Recommendation</button>
+        </form>
+
+        <!-- Output Recommendation -->
+        <div id="result"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
