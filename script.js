@@ -49,7 +49,7 @@ function processForm() {
 
     // Modify dosage and warning based on prior paracetamol intake
     if (paracetamol === "yes") {
-        resultText += "<p>You have already taken paracetamol in the last 24 hours. Please ensure you do not exceed the maximum daily dosage of 4000mg.</p>";
+        resultText += "<p>You have already taken paracetamol in the last 24 hours. Please ensure you do not exceed the maximum daily dosage of 2000mg.</p>";
     }
 
     // Hydration advice based on water intake
@@ -62,6 +62,9 @@ function processForm() {
     resultText += `<p>Recommended dosage: ${dosage}mg, ${frequency}, ${timing}</p>`;
     resultText += `<p>${mealAdvice}</p>`;
     resultText += `<p>${hydration}</p>`;
+
+    // Add final message about cart
+    resultText += `<p>Your recommended dosage of Kapton has been added to your cart for easy purchase.</p>`;
 
     // Display the recommendation
     document.getElementById("recommendation").innerHTML = resultText;
