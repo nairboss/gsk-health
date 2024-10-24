@@ -1,3 +1,14 @@
+// Function to handle page navigation
+function nextPage(pageNumber) {
+    // Hide all pages
+    for (let i = 1; i <= 7; i++) {
+        document.getElementById(`page${i}`).style.display = 'none';
+    }
+    // Show the selected page
+    document.getElementById(`page${pageNumber}`).style.display = 'block';
+}
+
+// Function to process form inputs and display the final recommendation
 function processForm() {
     // Get user inputs
     let symptoms = document.getElementById("symptoms").value;
@@ -7,35 +18,44 @@ function processForm() {
     let eaten = document.querySelector('input[name="eaten"]:checked').value;
     let water = document.getElementById("water").value;
 
-    // Calculate recommendations based on inputs
-    let resultText = "Based on your input, here is our recommendation: <br>";
+    // Initialize the recommendation message
+    let resultText = "<p>Based on your input, here is our recommendation:</p>";
 
     // Dosage recommendation logic
-    let dosage = 500; // default dosage
+    let dosage = 500; // Default dosage
     if (weight === "more_100") {
-        dosage = 650; // higher dosage for heavier individuals
+        dosage = 650; // Higher dosage for heavier individuals
     }
 
-    // Timing suggestion based on eating
+    // Timing suggestion based on eating status
     let timing = (eaten === "no") ? "Please eat something before taking Kapton." : "You can take the tablet now.";
 
     // Water intake advice
     let hydration = (water === "less_3") ? "Please drink more water before taking Kapton." : "You are hydrated enough.";
 
-    // Fever logic
+    // Fever advice logic
     if (temperature === "above_102") {
-        resultText += "Your fever is quite high. We recommend consulting a doctor. <br>";
+        resultText += "<p>Your fever is quite high. We recommend consulting a doctor.</p>";
     }
 
-    // Recommendation result
-    resultText += `Recommended dosage: ${dosage}mg <br>`;
-    resultText += `${timing} <br>`;
-    resultText += `${hydration} <br>`;
+    // Final recommendation output
+    resultText += `<p>Recommended dosage: ${dosage}mg</p>`;
+    resultText += `<p>${timing}</p>`;
+    resultText += `<p>${hydration}</p>`;
 
-    // Add Kapton to cart logic (simulation)
-    resultText += `<br><strong>Kapton paracetamol has been added to your cart.</strong>`;
+    // Paracetamol consumption logic
+    if (paracetamol === "yes") {
+        resultText += "<p>You have already taken paracetamol in the last 24 hours. Please ensure you do not exceed the maximum daily dosage of 4000mg.</p>";
+    }
 
-    // Display the result
-    document.getElementById("result").innerHTML = resultText;
-    document.getElementById("result").style.display = "block";
+    // Display the recommendation
+    document.getElementById("recommendation").innerHTML = resultText;
+
+    // Show the result page
+    document.getElementById("result").style.display = 'block';
+    
+    // Hide all previous pages
+    for (let i = 1; i <= 7; i++) {
+        document.getElementById(`page${i}`).style.display = 'none';
+    }
 }
