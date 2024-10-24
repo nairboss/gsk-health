@@ -73,24 +73,6 @@ select, input[type="radio"], input[type="checkbox"] {
     border-radius: 5px;
 }
 
-/* Pop-up styling */
-.popup {
-    background-color: #f39c12;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    animation: popup 1s ease-in-out;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
-@keyframes popup {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
-}
-
 @media only screen and (max-width: 600px) {
     .container {
         padding: 20px;
