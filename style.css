@@ -1,3 +1,4 @@
+/* General body and container styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
@@ -28,6 +29,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    width: 100%;
 }
 
 button:hover {
@@ -43,9 +45,10 @@ select, input[type="radio"] {
 }
 
 .page-img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin-top: 20px;
+    object-fit: contain;
 }
 
 #result {
@@ -53,4 +56,20 @@ select, input[type="radio"] {
     color: #2c3e50;
     padding: 20px;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .page-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }
