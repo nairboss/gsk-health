@@ -68,6 +68,7 @@ select, input[type="radio"], input[type="range"] {
     color: #2c3e50;
     padding: 20px;
     border-radius: 5px;
+    text-align: left; /* Left-align for bullet points */
 }
 
 /* Pop-up styling */
@@ -78,6 +79,9 @@ select, input[type="radio"], input[type="range"] {
     border-radius: 10px;
     margin-top: 20px;
     animation: popup 1s ease-in-out;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
 }
 
 @keyframes popup {
@@ -95,3 +99,8 @@ select, input[type="radio"], input[type="range"] {
         width: 100px;
         height: 100px;
     }
+
+    button {
+        font-size: 14px;
+    }
+}
