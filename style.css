@@ -1,4 +1,4 @@
-/* General body and container styles */ 
+/* General body and container styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
@@ -36,7 +36,7 @@ button:hover {
     background-color: #2980b9;
 }
 
-select, input[type="radio"] {
+select, input[type="radio"], input[type="range"] {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -49,6 +49,17 @@ select, input[type="radio"] {
     height: 150px;
     margin-top: 20px;
     object-fit: contain;
+}
+
+.radio-group, .checkbox-group {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.radio-group label, .checkbox-group label {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
 }
 
 #result {
