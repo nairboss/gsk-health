@@ -1,7 +1,7 @@
 /* General body and container styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+    background-color: #fff0e0;  /* Orange-based background */
     margin: 0;
     padding: 0;
 }
@@ -17,11 +17,11 @@ body {
 }
 
 h1, h2 {
-    color: #2c3e50;
+    color: #d35400;  /* Orange color for headings */
 }
 
 button {
-    background-color: #3498db;
+    background-color: #e67e22;  /* Orange button */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -33,7 +33,7 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #d35400;  /* Darker shade on hover */
 }
 
 select, input[type="radio"], input[type="range"] {
@@ -64,10 +64,25 @@ select, input[type="radio"], input[type="range"] {
 }
 
 #result {
-    background-color: #eafaf1;
+    background-color: #f9f9f9;
     color: #2c3e50;
     padding: 20px;
     border-radius: 5px;
+}
+
+/* Pop-up styling */
+.popup {
+    background-color: #f39c12;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    animation: popup 1s ease-in-out;
+}
+
+@keyframes popup {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
 }
 
 @media only screen and (max-width: 600px) {
@@ -80,8 +95,3 @@ select, input[type="radio"], input[type="range"] {
         width: 100px;
         height: 100px;
     }
-
-    button {
-        font-size: 14px;
-    }
-}
