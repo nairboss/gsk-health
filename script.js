@@ -21,32 +21,37 @@ function processForm() {
     // Initialize the recommendation message
     let resultText = "<p>Based on your input, here is our recommendation:</p>";
 
-    // Dosage recommendation logic
-    let dosage = 500; // Default dosage
-    if (weight === "more_100") {
-        dosage = 650; // Higher dosage for heavier individuals
+    // Dosage recommendation logic based on weight
+    let dosage = 500; // default dosage
+    if (weight === "more_100" || weight === "80_99") {
+        dosage = 650;
     }
 
-    // Timing suggestion based on eating status
-    let timing = (eaten === "no") ? "Please eat something before taking Kapton." : "You can take the tablet now.";
+    // Fever severity can influence timing and dosage
+    let frequency = "twice a day"; // default frequency
+    let timing = "after lunch and dinner"; // default timing
 
-    // Water intake advice
-    let hydration = (water === "less_3") ? "Please drink more water before taking Kapton." : "You are hydrated enough.";
-
-    // Fever advice logic
     if (temperature === "above_102") {
         resultText += "<p>Your fever is quite high. We recommend consulting a doctor.</p>";
+        frequency = "three times a day";
+        timing = "after every meal (breakfast, lunch, and dinner)";
     }
 
-    // Final recommendation output
-    resultText += `<p>Recommended dosage: ${dosage}mg</p>`;
-    resultText += `<p>${timing}</p>`;
-    resultText += `<p>${hydration}</p>`;
-
-    // Paracetamol consumption logic
+    // Modify the dosage and warning based on prior paracetamol intake
     if (paracetamol === "yes") {
         resultText += "<p>You have already taken paracetamol in the last 24 hours. Please ensure you do not exceed the maximum daily dosage of 4000mg.</p>";
     }
+
+    // Hydration advice based on water intake
+    let hydration = (water === "less_3") ? "Please drink more water before taking Kapton." : "You are hydrated enough.";
+
+    // Timing suggestion based on eating status
+    let mealAdvice = (eaten === "no") ? "Please eat something before taking Kapton." : "You can take the tablet now.";
+
+    // Final recommendation output
+    resultText += `<p>Recommended dosage: ${dosage}mg, ${frequency}, ${timing}</p>`;
+    resultText += `<p>${mealAdvice}</p>`;
+    resultText += `<p>${hydration}</p>`;
 
     // Display the recommendation
     document.getElementById("recommendation").innerHTML = resultText;
