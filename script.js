@@ -1,14 +1,14 @@
 // Function to handle page navigation
 function nextPage(pageNumber) {
     // Hide all pages
-    const pages = document.querySelectorAll('.container');
-    pages.forEach(page => page.style.display = 'none');
-
+    for (let i = 1; i <= 7; i++) {
+        document.getElementById(`page${i}`).style.display = 'none';
+    }
     // Show the selected page
     document.getElementById(`page${pageNumber}`).style.display = 'block';
 }
 
-// Function to display weight value dynamically from the slider (if applicable)
+// Function to display weight value dynamically from the slider
 function showWeightValue(value) {
     document.getElementById("weightValue").innerText = value;
 }
@@ -71,14 +71,11 @@ function processForm() {
     // Show the result page
     document.getElementById("result").style.display = 'block';
 
+    // Show the cart pop-up message
+    document.getElementById("cartPopup").style.display = 'block';
+
     // Hide all previous pages
     for (let i = 1; i <= 7; i++) {
         document.getElementById(`page${i}`).style.display = 'none';
     }
-}
-
-// Function to show the final recommendation
-function showFinalRecommendation() {
-    document.getElementById("result").style.display = 'block';
-    document.getElementById("recommendation").innerHTML = "<p>Your personalized Kapton dosage recommendation has been added to the cart!</p>";
 }
