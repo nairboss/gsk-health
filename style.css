@@ -36,13 +36,36 @@ button:hover {
     background-color: #d35400;  /* Darker shade on hover */
 }
 
-select, input[type="radio"], input[type="range"] {
-    width: 100%;
+/* Styling for inputs to be displayed in linear format */
+input[type="checkbox"], input[type="radio"], select, input[type="range"] {
+    width: auto;
     padding: 10px;
     margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-align: center;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+label {
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+}
+
+/* Grouping of radio and checkbox elements */
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items left */
+    margin-top: 20px;
+}
+
+/* Slider alignment */
+input[type="range"] {
+    width: 100%; /* Full width slider */
+    margin: 10px 0;
 }
 
 .page-img {
@@ -50,17 +73,6 @@ select, input[type="radio"], input[type="range"] {
     height: 150px;
     margin-top: 20px;
     object-fit: contain;
-}
-
-.radio-group, .checkbox-group {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.radio-group label, .checkbox-group label {
-    display: inline-block;
-    margin: 10px 0;
-    font-size: 16px;
 }
 
 #result {
@@ -84,11 +96,7 @@ select, input[type="radio"], input[type="range"] {
     text-align: center;
 }
 
-@keyframes popup {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
-}
-
+/* Responsive design */
 @media only screen and (max-width: 600px) {
     .container {
         padding: 20px;
@@ -102,5 +110,9 @@ select, input[type="radio"], input[type="range"] {
 
     button {
         font-size: 14px;
+    }
+
+    label {
+        font-size: 14px; /* Adjust label size for mobile */
     }
 }
