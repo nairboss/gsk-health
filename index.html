@@ -8,68 +8,93 @@
 </head>
 <body>
 
-    <div class="container">
+    <!-- First Page: Introduction -->
+    <div class="container" id="page1">
         <h1>Kapton Health Guidance Tool</h1>
-        <p>Please answer the following questions to get personalized recommendations.</p>
+        <p>Get personalized advice on how to take your Kapton paracetamol. Answer a few questions, and we’ll guide you through safe usage.</p>
+        <img src="img/intro.png" alt="Health Guidance" class="page-img">
+        <button onclick="nextPage(2)">Start</button>
+    </div>
 
-        <form id="healthForm">
-            <!-- Question 1: Symptoms -->
-            <label for="symptoms">What symptoms are you experiencing?</label>
-            <select id="symptoms" multiple>
-                <option value="fever">Fever</option>
-                <option value="headache">Headache</option>
-                <option value="body_aches">Body aches</option>
-                <option value="cold">Cold/flu-like symptoms</option>
-                <option value="sore_throat">Sore throat</option>
-                <option value="none">None</option>
-            </select>
+    <!-- Page 2: Symptoms -->
+    <div class="container" id="page2" style="display: none;">
+        <h2>What symptoms are you experiencing?</h2>
+        <img src="img/symptoms.png" alt="Symptoms" class="page-img">
+        <select id="symptoms" multiple>
+            <option value="fever">Fever</option>
+            <option value="headache">Headache</option>
+            <option value="body_aches">Body aches</option>
+            <option value="cold">Cold/flu-like symptoms</option>
+            <option value="sore_throat">Sore throat</option>
+            <option value="none">None</option>
+        </select>
+        <button onclick="nextPage(3)">Next</button>
+    </div>
 
-            <!-- Question 2: Body Temperature -->
-            <label for="temperature">What is your current body temperature?</label>
-            <select id="temperature">
-                <option value="less_100">Less than 100°F</option>
-                <option value="100_102">100°F to 102°F</option>
-                <option value="above_102">Above 102°F</option>
-                <option value="not_sure">Not sure</option>
-            </select>
+    <!-- Page 3: Body Temperature -->
+    <div class="container" id="page3" style="display: none;">
+        <h2>What is your current body temperature?</h2>
+        <img src="img/temperature.png" alt="Body Temperature" class="page-img">
+        <select id="temperature">
+            <option value="less_100">Less than 100°F</option>
+            <option value="100_102">100°F to 102°F</option>
+            <option value="above_102">Above 102°F</option>
+            <option value="not_sure">Not sure</option>
+        </select>
+        <button onclick="nextPage(4)">Next</button>
+    </div>
 
-            <!-- Question 3: Paracetamol in Last 24 hours -->
-            <label>Have you taken any paracetamol in the past 24 hours?</label>
-            <input type="radio" name="paracetamol" value="yes"> Yes
-            <input type="radio" name="paracetamol" value="no"> No
+    <!-- Page 4: Paracetamol Taken -->
+    <div class="container" id="page4" style="display: none;">
+        <h2>Have you taken any paracetamol in the past 24 hours?</h2>
+        <img src="img/paracetamol.png" alt="Paracetamol" class="page-img">
+        <input type="radio" name="paracetamol" value="yes"> Yes
+        <input type="radio" name="paracetamol" value="no"> No
+        <button onclick="nextPage(5)">Next</button>
+    </div>
 
-            <!-- Question 4: Weight -->
-            <label for="weight">What is your weight?</label>
-            <select id="weight">
-                <option value="less_40">Less than 40 kg</option>
-                <option value="40_59">40-59 kg</option>
-                <option value="60_79">60-79 kg</option>
-                <option value="80_99">80-99 kg</option>
-                <option value="more_100">100 kg or more</option>
-            </select>
+    <!-- Page 5: Weight -->
+    <div class="container" id="page5" style="display: none;">
+        <h2>What is your weight?</h2>
+        <img src="img/weight.png" alt="Weight" class="page-img">
+        <select id="weight">
+            <option value="less_40">Less than 40 kg</option>
+            <option value="40_59">40-59 kg</option>
+            <option value="60_79">60-79 kg</option>
+            <option value="80_99">80-99 kg</option>
+            <option value="more_100">100 kg or more</option>
+        </select>
+        <button onclick="nextPage(6)">Next</button>
+    </div>
 
-            <!-- Question 5: Eaten in last 2 hours -->
-            <label>Have you eaten in the last 2 hours?</label>
-            <input type="radio" name="eaten" value="meal"> Yes, I’ve had a meal
-            <input type="radio" name="eaten" value="snack"> Yes, I’ve had a light snack
-            <input type="radio" name="eaten" value="no"> No
+    <!-- Page 6: Eaten in last 2 hours -->
+    <div class="container" id="page6" style="display: none;">
+        <h2>Have you eaten in the last 2 hours?</h2>
+        <img src="img/meal.png" alt="Meal" class="page-img">
+        <input type="radio" name="eaten" value="meal"> Yes, I’ve had a meal
+        <input type="radio" name="eaten" value="snack"> Yes, I’ve had a light snack
+        <input type="radio" name="eaten" value="no"> No
+        <button onclick="nextPage(7)">Next</button>
+    </div>
 
-            <!-- Question 6: Water Consumption -->
-            <label for="water">How much water have you consumed today?</label>
-            <select id="water">
-                <option value="less_3">Less than 3 glasses</option>
-                <option value="3_5">3-5 glasses</option>
-                <option value="6_8">6-8 glasses</option>
-                <option value="more_8">More than 8 glasses</option>
-            </select>
+    <!-- Page 7: Water Intake -->
+    <div class="container" id="page7" style="display: none;">
+        <h2>How much water have you consumed today?</h2>
+        <img src="img/water.png" alt="Water Intake" class="page-img">
+        <select id="water">
+            <option value="less_3">Less than 3 glasses</option>
+            <option value="3_5">3-5 glasses</option>
+            <option value="6_8">6-8 glasses</option>
+            <option value="more_8">More than 8 glasses</option>
+        </select>
+        <button onclick="processForm()">Submit</button>
+    </div>
 
-            <!-- Submit Button -->
-            <button type="button" onclick="processForm()">Get Recommendation</button>
-        </form>
-
-        <!-- Output Recommendation -->
-        <div id="result"></div>
-
+    <!-- Final Page: Recommendations -->
+    <div class="container" id="result" style="display: none;">
+        <h2>Your Personalized Kapton Recommendation</h2>
+        <div id="recommendation"></div>
+        <button onclick="window.location.reload()">Restart</button>
     </div>
 
     <script src="script.js"></script>
