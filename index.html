@@ -16,11 +16,11 @@
         <button class="btn" onclick="nextPage(2)">Start</button>
     </div>
 
-    <!-- Page 2: Symptoms as Linear Checkbox -->
+    <!-- Page 2: Symptoms as Multiple Checkboxes -->
     <div class="container" id="page2" style="display: none;">
         <h2>What symptoms are you experiencing?</h2>
         <img src="img/symptoms.png" alt="Symptoms" class="page-img">
-        <div class="linear-group">
+        <div class="checkbox-group">
             <label><input type="checkbox" id="symptom-fever"> Fever</label>
             <label><input type="checkbox" id="symptom-headache"> Headache</label>
             <label><input type="checkbox" id="symptom-body-aches"> Body aches</label>
@@ -30,22 +30,44 @@
         <button class="btn" onclick="nextPage(3)">Next</button>
     </div>
 
-    <!-- Page 4: Paracetamol Taken (Linear Radio Buttons) -->
+    <!-- Page 3: Body Temperature -->
+    <div class="container" id="page3" style="display: none;">
+        <h2>What is your current body temperature?</h2>
+        <img src="img/temperature.png" alt="Body Temperature" class="page-img">
+        <select id="temperature" class="input-field">
+            <option value="less_100">Less than 100°F</option>
+            <option value="100_102">100°F to 102°F</option>
+            <option value="above_102">Above 102°F</option>
+            <option value="not_sure">Not sure</option>
+        </select>
+        <button class="btn" onclick="nextPage(4)">Next</button>
+    </div>
+
+    <!-- Page 4: Paracetamol Taken -->
     <div class="container" id="page4" style="display: none;">
         <h2>Have you taken any paracetamol in the past 24 hours?</h2>
         <img src="img/paracetamol.png" alt="Paracetamol" class="page-img">
-        <div class="linear-group">
+        <div class="radio-group">
             <label><input type="radio" name="paracetamol" value="yes"> Yes</label>
             <label><input type="radio" name="paracetamol" value="no"> No</label>
         </div>
         <button class="btn" onclick="nextPage(5)">Next</button>
     </div>
 
-    <!-- Page 6: Eaten in last 2 hours (Linear Radio Buttons) -->
+    <!-- Page 5: Weight as Interactive Slider -->
+    <div class="container" id="page5" style="display: none;">
+        <h2>What is your weight?</h2>
+        <img src="img/weight.png" alt="Weight" class="page-img">
+        <input type="range" id="weight" class="input-field" min="40" max="150" value="60" oninput="showWeightValue(this.value)">
+        <p>Your weight: <span id="weightValue">60</span> kg</p>
+        <button class="btn" onclick="nextPage(6)">Next</button>
+    </div>
+
+    <!-- Page 6: Eaten in last 2 hours -->
     <div class="container" id="page6" style="display: none;">
         <h2>Have you eaten in the last 2 hours?</h2>
         <img src="img/meal.png" alt="Meal" class="page-img">
-        <div class="linear-group">
+        <div class="radio-group">
             <label><input type="radio" name="eaten" value="meal"> Yes, I’ve had a meal</label>
             <label><input type="radio" name="eaten" value="snack"> Yes, I’ve had a light snack</label>
             <label><input type="radio" name="eaten" value="no"> No</label>
@@ -53,10 +75,26 @@
         <button class="btn" onclick="nextPage(7)">Next</button>
     </div>
 
-    <!-- Final Page: Recommendations -->
+    <!-- Page 7: Water Intake -->
+    <div class="container" id="page7" style="display: none;">
+        <h2>How much water have you consumed today?</h2>
+        <img src="img/water.png" alt="Water Intake" class="page-img">
+        <select id="water" class="input-field">
+            <option value="less_3">Less than 3 glasses</option>
+            <option value="3_5">3-5 glasses</option>
+            <option value="6_8">6-8 glasses</option>
+            <option value="more_8">More than 8 glasses</option>
+        </select>
+        <button class="btn" onclick="processForm()">Submit</button>
+    </div>
+
+        <!-- Final Page: Recommendations -->
     <div class="container" id="result" style="display: none;">
         <h2>Your Personalized Kapton Recommendation</h2>
         <div id="recommendation"></div>
+        <div class="popup" id="cartPopup">
+            <p><strong>Your recommended dosage of Kapton has been added to your cart for easy purchase!</strong></p>
+        </div>
     </div>
 
     <script src="script.js"></script>
