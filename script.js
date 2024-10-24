@@ -17,11 +17,11 @@ function showWeightValue(value) {
 function processForm() {
     // Get user inputs for symptoms
     let symptoms = [];
-    if (document.getElementById("symptom-fever").checked) symptoms.push("fever");
-    if (document.getElementById("symptom-headache").checked) symptoms.push("headache");
-    if (document.getElementById("symptom-body-aches").checked) symptoms.push("body aches");
-    if (document.getElementById("symptom-cold").checked) symptoms.push("cold/flu-like symptoms");
-    if (document.getElementById("symptom-sore-throat").checked) symptoms.push("sore throat");
+    if (document.getElementById("symptom-fever").checked) symptoms.push("Fever");
+    if (document.getElementById("symptom-headache").checked) symptoms.push("Headache");
+    if (document.getElementById("symptom-body-aches").checked) symptoms.push("Body aches");
+    if (document.getElementById("symptom-cold").checked) symptoms.push("Cold/flu-like symptoms");
+    if (document.getElementById("symptom-sore-throat").checked) symptoms.push("Sore throat");
 
     let temperature = document.getElementById("temperature").value;
     let paracetamol = document.querySelector('input[name="paracetamol"]:checked').value;
@@ -58,19 +58,21 @@ function processForm() {
     // Timing suggestion based on eating status
     let mealAdvice = (eaten === "no") ? "Please eat something before taking Kapton." : "You can take the tablet now.";
 
-    // Final recommendation output
-    resultText += `<p>Recommended dosage: ${dosage}mg, ${frequency}, ${timing}</p>`;
-    resultText += `<p>${mealAdvice}</p>`;
-    resultText += `<p>${hydration}</p>`;
-
-    // Add final message about cart
-    resultText += `<p>Your recommended dosage of Kapton has been added to your cart for easy purchase.</p>`;
+    // Final recommendation output in bullet points
+    resultText += `<ul>
+                    <li><strong>Recommended dosage:</strong> ${dosage}mg, ${frequency}, ${timing}</li>
+                    <li>${mealAdvice}</li>
+                    <li>${hydration}</li>
+                  </ul>`;
 
     // Display the recommendation
     document.getElementById("recommendation").innerHTML = resultText;
 
     // Show the result page
     document.getElementById("result").style.display = 'block';
+
+    // Show the cart pop-up message
+    document.getElementById("cartPopup").style.display = 'block';
 
     // Hide all previous pages
     for (let i = 1; i <= 7; i++) {
